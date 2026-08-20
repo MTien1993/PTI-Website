@@ -2,6 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Without this, mobile browsers assume a ~980px desktop layout viewport
+     (there's nothing here to tell them otherwise) and just zoom the whole
+     rendered page out to fit the screen — every @media breakpoint inside the
+     iframe'd pages then evaluates against that same inflated ~980px width,
+     so max-width:640px/900px rules never fire and the site looks like a
+     shrunk desktop instead of actually reflowing. This tag is what makes the
+     layout viewport equal the device's real width, which is what every
+     responsive fix in the individual pages has been relying on. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PTI — Toàn bộ trang (redesign)</title>
 <style>
   html,body{margin:0;padding:0;height:100%;width:100%;background:#F2F5FA;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
